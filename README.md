@@ -7,7 +7,7 @@
 
 [ind]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#indice
 [wel]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#welcome
-[p1]: 
+[p1]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#basic-vacuum-cleaner
 
 
 ---
