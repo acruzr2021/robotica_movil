@@ -35,3 +35,11 @@ To decide if the object is near the robot, I code an method called distance whos
 
 ![WhatsApp Image 2023-09-27 at 19 20 28](https://github.com/acruzr2021/robotica_movil/assets/92941137/dec115cc-4a9d-4e3b-81dd-2728529df47a)
 
+Later, I implemented four different states:
+
+  - *Spiral*: (State 0) The code starts in this state. Consist of leaving a constant angular speed and increasing the linear speed, causing the spiral to increase in radius, covering more area. The  direction of rotation is random.
+  - *Back*: (State 1) Consist on go back for a BackingTime. Has a constant linear negative speed and has not an angular speed.
+  - *Forward*: (State 2) Consist on go forward for a ForwardTime. Has a constant linear positive speed and has not an angular speed.
+  - *Turn*: (State 3) Consist on turn for a TurningTime. Has a constant angular speed and has not a linear speed.
+
+Those states are representated in the follow diagram:
