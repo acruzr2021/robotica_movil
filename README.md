@@ -80,3 +80,5 @@ All of these modifications had a similar behavior but less effective and efficie
 And here we have two example videos of the final implementation.
 
 [Screencast from 28-09-23 19:35:45.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4d044ef1-0686-4d0b-8035-8e12313f7144)
+
+[Screencast from 28-09-23 20:05:45.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/c562618e-c487-4828-bd7d-5309df03c891)
