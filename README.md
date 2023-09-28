@@ -53,5 +53,7 @@ Those states are representated in the follow diagram:
 
 I thought that could be a great idea to implement a bumper as an additional security method, but if the robot collided from behind, detectted the right or left side since it does not have a rear sensor. If the robot collided on the right side (at the front) and it was implemented to go backwards, if it was then hit from behind, it could not get out of there and vice versa. Then, I decided to include to the code a timer to change the states.
 
+Another discarded idea was to make the direction of the spin state random since many times it ended up spinning without leaving the state. Also I tried to make the spiral state random when the robot was in forward state, but I find more effective make the transition after a specific timer.
+
 
 
