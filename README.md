@@ -55,5 +55,15 @@ I thought that could be a great idea to implement a bumper as an additional secu
 
 Another discarded idea was to make the direction of the spin state random since many times it ended up spinning without leaving the state. Also I tried to make the spiral state random when the robot was in forward state, but I find more effective make the transition after a specific timer.
 
+Another idea that i implemented but was also descarted was this relationship of states:
 
+| Current Status | Previous Status   | Action        |
+| :---:          |     :---:         |         :---: |
+| near           | near              | turn          |
+| near           | far               | back          |
+| far            | near              | forward       |
+| far            | far               | spiral        |
 
+in this case we take into account the current state and a previous one before making the decision. This implementation has a lot of concatenated ifs and it was less effective.
+
+The current code has had many differents versions
