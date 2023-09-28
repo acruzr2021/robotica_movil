@@ -83,3 +83,7 @@ And here we have two example videos of the final implementation.
 
 
 [Screencast from 28-09-23 20:05:45.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/c562618e-c487-4828-bd7d-5309df03c891)
+
+And here a photo of a 20 minute running:
+
+![Screenshot from 2023-09-28 22-39-53](https://github.com/acruzr2021/robotica_movil/assets/92941137/8cbc06b7-9ba1-47b9-aaf9-4eced67f4456)
