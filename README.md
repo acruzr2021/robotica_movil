@@ -41,7 +41,7 @@ To decide if the object is near the robot, I code an method called distance whos
 
 Later, I implemented four different states:
 
-  - *Spiral*: (State 0) The code starts in this state. Consist of leaving a constant angular speed and increasing the linear speed, causing the spiral to increase in radius, covering more area. The  direction of rotation is random. If an obstacle is detected less than half a meter, the robot actuvate state 1 (back).
+  - *Spiral*: (State 0) The code starts in this state. Consist of decreasing the angular speed and increasing the linear speed, causing the spiral to increase in radius, covering more area. The  direction of rotation is random. If an obstacle is detected less than half a meter, the robot actuvate state 1 (back).
   - *Back*: (State 1) Consist on go back for a BackingTime. Has a constant linear negative speed and has not an angular speed. If the backingtime ends, the robot enters state 3 (turn). 
   - *Forward*: (State 2) Consist on go forward for a ForwardTime. Has a constant linear positive speed and has not an angular speed. If forwardtime ends,  the state 0 or spiral (in random direction) starts. If an obstable is detected near, the state 1 starts.
   - *Turn*: (State 3) Consist on turn for a TurningTime. Has a constant angular speed and has not a linear speed. If an obstacke is detected near, keeps in this state. If the turningtime ends, goes to the state 2 (forward).
@@ -66,4 +66,17 @@ Another idea that i implemented but was also descarted was this relationship of 
 
 in this case we take into account the current state and a previous one before making the decision. This implementation has a lot of concatenated ifs and it was less effective.
 
-The current code has had many differents versions
+The current code has had many differents versions:
+ - Leaving the spiral direction constant
+ - Randomly changing the angular direction
+ - Leaving constant the angular speed of the spiral
+ - Counting iterations
+
+All of these modifications had a similar behavior but less effective and efficient than leaving constant the turn's angular speed, changing the angular speed direction of spiral and randomly changing the angular speed.
+
+
+## Result
+
+And here we have two example videos of the final implementation.
+
+[Screencast from 28-09-23 19:35:45.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4d044ef1-0686-4d0b-8035-8e12313f7144)
