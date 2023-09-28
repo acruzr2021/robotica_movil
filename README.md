@@ -34,7 +34,7 @@ In first place, we will use a data collected by the robot laser as a method of s
 
 We also have another fuction called laser_mean which return a middle distance of the obstacles that the robot has around it. At first I used this second option, but I ended up finding more precise the first option doing some changes.
 
-To decide if the object is near the robot, I code an method called distance whose argument is the output of the function paser_laser_data. "distance" shortens the angle of interest and use an angle of about 60 degrees. If an obstcle is less of 0.5 meters of the robot in these range of angles, the method return 1, else 0.
+To decide if the object is near the robot, I code an method called distance whose argument is the output of the function paser_laser_data. "distance" shorters the angle of interest and use an angle of about 60 degrees. If an obstcle is less of 0.5 meters of the robot in these range of angles, the method return 1, else 0.
 
 ![dibujo drawio](https://github.com/acruzr2021/robotica_movil/assets/92941137/c5c56404-e776-4d18-81df-e6f1d43f8433)
 
