@@ -103,6 +103,13 @@ El objetivo de esta segunda práctica es conseguir que un coche de carreras pued
 
 ## Proceso 
 
+### Filtrado de imagen
+
 Para empezar, necesitábamos filtrar la imagen para detectar la línea roja y pasarla a binario. Para ello, hicimos uso de las librerías de OpenCV *cv2* e hicimos un filtro de color, en mi caso, decidí usar el formato rgb. Elegí el tono más alto y más bajo para obtener un rango de colores que me permitiera percibir la línea sin que me detectara cualquier otro elemento de la imagen y convierte la imagen a binario. Una vez he creado la máscara de color, he decidido recortar la imagen por varios motivos: en la imagen aparecía el cielo el cual, en este caso, no nos ofrece ninguna información necesaria y por la parte de abajo nos da una información algo redundante. Además, a la hora de usar el PID, me he dado cuenta de que, con la imagen más cerca, el tiene un mejor comportamiento y es más fácil de manejar. 
 
-Luego, he buscado los contornos de la línea para poder buscar el mayor contorno (mediante su área) y buscar el momento, que nos proporcionará el centro de la línea. Una vez tenemos esto, en forma de señalización visual, he puesto un círculo en la ubibicabbbb
+Luego, he buscado los contornos de la línea para poder buscar el mayor contorno (mediante su área) y buscar el momento, que nos proporcionará el centro de la línea. Una vez tenemos esto, en forma de señalización visual, he puesto un círculo en la ubicación del centroide de la línea. Esta será la imagen que mostraremos por pantalla:
+
+![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/40609d27-6775-444e-a358-a66e173268a1)
+
+
+
