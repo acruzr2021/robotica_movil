@@ -109,7 +109,17 @@ Para empezar, necesitábamos filtrar la imagen para detectar la línea roja y pa
 
 Luego, he buscado los contornos de la línea para poder buscar el mayor contorno (mediante su área) y buscar el momento, que nos proporcionará el centro de la línea. Una vez tenemos esto, en forma de señalización visual, he puesto un círculo en la ubicación del centroide de la línea. Esta será la imagen que mostraremos por pantalla:
 
+
 ![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/40609d27-6775-444e-a358-a66e173268a1)
+
+### Controlador PID
+
+Para controlar la velocidad angular, hemos implementado dos PIDs diferentes: uno en caso de detectar una curva cerrada y otro en caso de que el radio de la curva no sea muy cerrado o sea una recta. La distinción de casos nos permite reducir el tiempo en el que el coche da la vuelta ya que puedes colocar dos velocidades (o tramos de velocidades) diferentes con sus respectivos, cosa que, con un solo PID y una velocidad constante, nos vemos más limitados a la hora de poder diseñar un controlador preciso que ejecute buenos tiempos. 
+
+Para la distinción de si es curva o es recta, hemos tenido en cuenta la diferencia entre el centro de la imagen (teniendo en cuenta que el coche está desplazado a un lado) y el centroide calculado en el filtrado de imagen. Si el absoluto de dicha diferencia es mayor a una constante de error, devolveremos que dicho tramo es un tramo curvo, en caso contrario, es un tramo recto. El error está en un rango entre [-1, 1], ya que nos facilitaba la elección de valores para el controlador. Estaba la posibilidad de que el coche se desorientara, perdiera la línea y no tuvieramos centroide, por lo que implementé que si perdía la línea, el error sería +- 1, donde el signo es dependiente del signo del error previo.
+
+
+![Untitled Diagram drawio (1)](https://github.com/acruzr2021/robotica_movil/assets/92941137/032db622-77bc-4fcd-8175-65fdffef8489)
 
 
 
