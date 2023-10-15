@@ -127,12 +127,22 @@ $W = Kp * err_x + Kd * (err_x - prev_error) + Ki * sum_error/i$
 Por otro lado, para la salida de la velocidad lineal diferenciamos también por los dos casos antariores:
 
   - Si es una recta, tendremos una velocidad constante de 9 u.
-  - Si es una curva, la velocidad  variará en un rango de [0,3] u, dependiendo de esta fórmula: $V = Vmax/(abs(W) + 1)$
+  - Si es una curva, la velocidad  variará en un rango de [0,3] u, dependiendo de esta fórmula: $V = Vmax/(abs(W) + 1)$.
+
+# Comentarios
+
+Durante el transcurso de la práctica he probado diferentes métodos para encontrar la mejor solución posible.
+
+Intenté diferenciar las curvas de las rectas mediante la diferencia del área del mayor contorno menos la del menor, pero era un problema ya que la imagen está en perspectiva, la única forma eficaz que encontré fue comprobando el error entre el centro de la imagen y el centroide de la línea.
+
+También ví que hay una mayor facilidad de manejo de valores si están en un rango definido. Además, hay mejora en el controlador centrando la cámara al mínimo imprescindible.
+
+Un último apunte es que, en la solución final, en las curvas muy cerradas el coche sigue la línea pero a veces por fueera, ya que tuve que elegir entre hacer un programa que fuera muy exacto bastante lento o uno algo menos exacto más veloz.
 
 
-Primeras vueltas funcionales (no es el resultado final)
+# Resultado
 
-[Screencast from 14-10-23 18:17:58.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/bce0582c-6a31-41c3-9182-2ffd85363d22)
+Aquí dejo unos vídeos de la solución final:
 
 Video en mapa Simple
 
