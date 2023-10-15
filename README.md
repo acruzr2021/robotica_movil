@@ -4,11 +4,13 @@
 * [Indice][ind]
 * [Welcome][wel]
 * [Basic Vacuum Cleaner][p1]
+* [Follow line][p2]
 
 
 [ind]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#indice
 [wel]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#welcome
 [p1]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#basic-vacuum-cleaner
+[p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
 
 
 ---
@@ -88,3 +90,19 @@ And here we have two example videos of the final implementation.
 And here a photo of a 20 minute running:
 
 ![Screenshot from 2023-09-28 22-39-53](https://github.com/acruzr2021/robotica_movil/assets/92941137/8cbc06b7-9ba1-47b9-aaf9-4eced67f4456)
+
+
+
+# Basic Vacuum Cleaner
+
+
+## Meta
+
+El objetivo de esta segunda práctica es conseguir que un coche de carreras pueda ser controlado, con el uso de uno o varios controladores de la familia de los PIDs, para seguir una línea roja y completar el circuito en el menor tiempo posile.
+
+
+## Proceso 
+
+Para empezar, necesitábamos filtrar la imagen para detectar la línea roja y pasarla a binario. Para ello, hicimos uso de las librerías de OpenCV *cv2* e hicimos un filtro de color, en mi caso, decidí usar el formato rgb. Elegí el tono más alto y más bajo para obtener un rango de colores que me permitiera percibir la línea sin que me detectara cualquier otro elemento de la imagen y convierte la imagen a binario. Una vez he creado la máscara de color, he decidido recortar la imagen por varios motivos: en la imagen aparecía el cielo el cual, en este caso, no nos ofrece ninguna información necesaria y por la parte de abajo nos da una información algo redundante. Además, a la hora de usar el PID, me he dado cuenta de que, con la imagen más cerca, el tiene un mejor comportamiento y es más fácil de manejar. 
+
+Luego, he buscado los contornos de la línea para poder buscar el mayor contorno (mediante su área) y buscar el momento, que nos proporcionará el centro de la línea. Una vez tenemos esto, en forma de señalización visual, he puesto un círculo en la ubibicabbbb
