@@ -118,8 +118,31 @@ Para controlar la velocidad angular, hemos implementado dos PIDs diferentes: uno
 
 Para la distinción de si es curva o es recta, hemos tenido en cuenta la diferencia entre el centro de la imagen (teniendo en cuenta que el coche está desplazado a un lado) y el centroide calculado en el filtrado de imagen. Si el absoluto de dicha diferencia es mayor a una constante de error, devolveremos que dicho tramo es un tramo curvo, en caso contrario, es un tramo recto. El error está en un rango entre [-1, 1], ya que nos facilitaba la elección de valores para el controlador. Estaba la posibilidad de que el coche se desorientara, perdiera la línea y no tuvieramos centroide, por lo que implementé que si perdía la línea, el error sería +- 1, donde el signo es dependiente del signo del error previo.
 
-
 ![Untitled Diagram drawio (1)](https://github.com/acruzr2021/robotica_movil/assets/92941137/032db622-77bc-4fcd-8175-65fdffef8489)
 
+Una vez diferenciados los dos casos, he implementado dos controladores del tipo PID diferentes en cada caso. Para el cálculo de la salida de la velocidad angular, he hecho uso de la siguiente función:
 
+$W = Kp * err_x + Kd * (err_x - prev_error) + Ki * sum_error/i$
+
+Por otro lado, para la salida de la velocidad lineal diferenciamos también por los dos casos antariores:
+
+  - Si es una recta, tendremos una velocidad constante de 9 u.
+  - Si es una curva, la velocidad  variará en un rango de [0,3] u, dependiendo de esta fórmula: $V = Vmax/(abs(W) + 1)$
+
+
+Primeras vueltas funcionales (no es el resultado final)
+
+[Screencast from 14-10-23 18:17:58.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/bce0582c-6a31-41c3-9182-2ffd85363d22)
+
+Video en mapa Simple
+
+[Screencast from 15-10-23 20:18:19.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/af0425a2-d9a1-443d-ba2f-5bae69ec3f87)
+
+Video en mapa Montmelo
+
+[Screencast from 15-10-23 20:35:05.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/b7d28fa2-76c7-49cb-b4fa-fdcd57a41ed9)
+
+Video en mapa Nürburgring
+
+[Screencast from 15-10-23 20:45:37.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/263d1885-7b11-427b-934e-bea88379aea4)
 
