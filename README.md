@@ -5,12 +5,14 @@
 * [Welcome][wel]
 * [Basic Vacuum Cleaner][p1]
 * [Follow line][p2]
+* [Obstacle Avoidance][p3]
 
 
 [ind]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#indice
 [wel]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#welcome
 [p1]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#basic-vacuum-cleaner
 [p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
+[p3]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#obstacle-avoidance
 
 
 ---
@@ -92,6 +94,8 @@ And here a photo of a 20 minute running:
 ![Screenshot from 2023-09-28 22-39-53](https://github.com/acruzr2021/robotica_movil/assets/92941137/8cbc06b7-9ba1-47b9-aaf9-4eced67f4456)
 
 
+---
+
 
 # Follow line
 
@@ -129,7 +133,7 @@ Por otro lado, para la salida de la velocidad lineal diferenciamos también por 
   - Si es una recta, tendremos una velocidad constante de 9 u.
   - Si es una curva, la velocidad  variará en un rango de [0,3] u, dependiendo de esta fórmula: $V = Vmax/(abs(W) + 1)$.
 
-# Comentarios
+## Comentarios
 
 Durante el transcurso de la práctica he probado diferentes métodos para encontrar la mejor solución posible.
 
@@ -140,7 +144,7 @@ También ví que hay una mayor facilidad de manejo de valores si están en un ra
 Un último apunte es que, en la solución final, en las curvas muy cerradas el coche sigue la línea pero a veces por fueera, ya que tuve que elegir entre hacer un programa que fuera muy exacto bastante lento o uno algo menos exacto más veloz.
 
 
-# Resultado
+## Resultado
 
 Aquí dejo unos vídeos de la solución final:
 
@@ -155,4 +159,28 @@ Video en mapa Montmelo
 Video en mapa Nürburgring
 
 [Screencast from 15-10-23 20:45:37.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/263d1885-7b11-427b-934e-bea88379aea4)
+
+
+---
+
+
+# Obstacle Avoidance
+
+## Objetivo
+
+El objetivo de esta práctica es conseguir que un coche de carreras esquive los obstáculos del circuito y pase por los puntos target mediante vectores de fuerzas atractivas y repulsivas en el menor tiempo posible.
+
+## Proceso
+
+### Fundamentos físicos
+
+Para esta práctica nos vamos a vasar en el Campo de Potencial (VFF). Este es un algoritmo que nos permite la planificación de la navegación en entornos que el robot no conoce. Se basa en el concepto de un campo de fuerza donde actuan dos fuerzas: una atractiva y otra repulsiva, dando lugar a una tercera como relación de las dos anteriores. La fuerza atractiva estará relacionada en este caso con los puntos target que el robot quiere alcanzar, y la repulsiva, los obstáculos y paredes que el robot debe evitar. El vector resultante sigue esta fórmula:
+
+$Fresultante = α * Fatractiva +  β * Frepulsiva$
+
+
+
+## Resultado
+
+[Screencast from 05-11-23 17:07:08.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4f0ba4ab-6f10-4c51-a627-193acf6e2676)
 
