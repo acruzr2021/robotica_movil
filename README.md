@@ -178,6 +178,66 @@ Para esta práctica nos vamos a vasar en el Campo de Potencial (VFF). Este es un
 
 $Fresultante = α * Fatractiva +  β * Frepulsiva$
 
+El conjunto de fuerzas se pueden represenrar así:
+
+![fuerzas](https://github.com/acruzr2021/robotica_movil/assets/92941137/a085680d-cc3f-45b2-a8cd-1d13d6f7c33f)
+
+
+### Programación
+
+Una vez tenemos a nivel teórico el algoritmo, debemos plasmarlo en código. Para ello usaremos distintas funciones:
+
+  - absolute2relative: función que convierte unas coordenadas del mapa global al las coordenadas relativas al robot.
+
+```python
+def absolute2relative (x_abs, y_abs, robotx, roboty, robott):
+
+  # robotx, roboty are the absolute coordinates of the robot
+  # robott is its absolute orientation
+  # Convert to relatives
+  dx = x_abs - robotx
+  dy = y_abs - roboty
+
+  # Rotate with current angle
+  x_rel = dx * math.cos (-robott) - dy * math.sin (-robott)
+  y_rel = dx * math.sin (-robott) + dy * math.cos (-robott)
+
+  return x_rel, y_rel
+```
+
+  - parse_laser_data: función para el uso del laser. Capa la detección del laser a 10 unidades (evitando los valores infinitos) y devuelve los datos sensados.
+
+```python
+def parse_laser_data (laser_data):
+  laser = []
+  i = 0
+  if len(laser_data.values) == 0:
+    return 0
+  while (i < len(laser_data.values)):
+    dist = laser_data.values[i]
+    if dist > 10:
+      dist = 10
+    angle = math.radians(i-90) # because the front of the robot is -90 degrees
+    laser += [(dist, angle)]
+    i+=1
+  return laser
+```
+
+ - laser_vector: convierte las medidas del laser a vector.
+
+```python
+def laser_vector(laser):
+    laser_vectorized = []
+    for d,a in laser:
+        # (4.2.1) laser into GUI reference system
+        x = np.exp(-d) * math.cos(a) * -1
+        y = np.exp(-d) * math.sin(a) * -1
+        v = (x,y)
+        laser_vectorized += [v]
+
+    laser_mean = np.mean(laser_vectorized, axis=0)
+    return laser_mean
+```
 
 
 ## Resultado
