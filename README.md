@@ -172,15 +172,17 @@ El objetivo de esta práctica es conseguir que un coche de carreras esquive los 
 
 ## Proceso
 
-### Fundamentos físicos
+### Algoritmo VFF
 
-Para esta práctica nos vamos a vasar en el Campo de Potencial (VFF). Este es un algoritmo que nos permite la planificación de la navegación en entornos que el robot no conoce. Se basa en el concepto de un campo de fuerza donde actuan dos fuerzas: una atractiva y otra repulsiva, dando lugar a una tercera como relación de las dos anteriores. La fuerza atractiva estará relacionada en este caso con los puntos target que el robot quiere alcanzar, y la repulsiva, los obstáculos y paredes que el robot debe evitar. El vector resultante sigue esta fórmula:
+Para esta práctica nos vamos a vasar en el Campo de Potencial (VFF). Este es un algoritmo de navegación local que nos permite la planificación del camino en entornos que el robot no conoce. Se basa en el concepto de un campo de fuerza donde actuan dos fuerzas: una atractiva y otra repulsiva, dando lugar a una tercera como relación de las dos anteriores. La fuerza atractiva estará relacionada en este caso con los puntos target que el robot quiere alcanzar, y la repulsiva, los obstáculos y paredes que el robot debe evitar. El vector resultante sigue esta fórmula:
 
 $Fresultante = α * Fatractiva +  β * Frepulsiva$
 
 
 
 ## Resultado
+
+Aquí dejo un vídeo del comportamiento final.
 
 [Screencast from 05-11-23 17:07:08.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4f0ba4ab-6f10-4c51-a627-193acf6e2676)
 
