@@ -249,7 +249,9 @@ Por otro lado, para completar el circuito en el menor tiempo posible con un corr
 
 ## Resultado
 
-Aquí dejo un vídeo del comportamiento final.
+Aquí dejo unos vídeos del comportamiento final.
+
+[Screencast from 06-11-23 18:45:18.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/d39eed23-736e-4093-8f89-d119298605b7)
 
 [Screencast from 05-11-23 17:07:08.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4f0ba4ab-6f10-4c51-a627-193acf6e2676)
 
