@@ -247,11 +247,19 @@ Alguno de los targets coincidian con la posición de obstáculos, por lo que, pa
 
 Por otro lado, para completar el circuito en el menor tiempo posible con un correcto funcionamiento del robot, hay dos posibles velocidades lineales dependiendo de si hay un obstáculo o no (puede ser confuso ya que en el código está puesto dependiente del avgForce, pero la coordenada x crece principalmente si hay un obstáculo cerca). La velocidad angular, en cambio, depende del eje y del vector resultante
 
+Por último, para que el vector resultante saliera con el eje x positivo, tuve que hacer que dicho eje tuviera el valor de la suma en valor absoluto de las fuerzas, ya que los pesos del vector repulsivo eran muy altos y con dirección negativa.
+
+```python
+avgForce = (abs(carForce[0] * ALPHA + obsForce[0] * BETA)), (carForce[1] * ALPHA + obsForce[1] * BETA)
+```
+
 ## Resultado
 
-Aquí dejo unos vídeos del comportamiento final.
+Aquí dejo unos vídeos del comportamiento final. Quiero resaltar que la ejecución es bastante más rápida si el procesador está holgado. En estas ejecuciones se suma un retardo considerable al estar grabando la pantalla. El tiempo medio del código sin estrés es de unos 2 minutos 20 segundos en mi ordenador.
 
 [Screencast from 06-11-23 18:45:18.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/d39eed23-736e-4093-8f89-d119298605b7)
+
+Este es el mismo código solo que en vez de multiplicar la constante Alpha al hacer la suma, está multiplicado en el vector verde, por eso sale tan pequeño.
 
 [Screencast from 05-11-23 17:07:08.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4f0ba4ab-6f10-4c51-a627-193acf6e2676)
 
