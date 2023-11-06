@@ -178,7 +178,7 @@ Para esta práctica nos vamos a vasar en el Campo de Potencial (VFF). Este es un
 
 $Fresultante = α * Fatractiva +  β * Frepulsiva$
 
-El conjunto de fuerzas se pueden represenrar así:
+El conjunto de fuerzas se pueden representar así:
 
 ![fuerzas](https://github.com/acruzr2021/robotica_movil/assets/92941137/a085680d-cc3f-45b2-a8cd-1d13d6f7c33f)
 
