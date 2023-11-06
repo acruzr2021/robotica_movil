@@ -12,7 +12,7 @@
 [wel]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#welcome
 [p1]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#basic-vacuum-cleaner
 [p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
-[p3]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#obstacle-avoidance
+[p3]: https://github.com/acruzr2021/robotica_movil/tree/main#obstacle-avoidance
 
 
 ---
