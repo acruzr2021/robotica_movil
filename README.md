@@ -185,7 +185,7 @@ El conjunto de fuerzas se pueden represenrar así:
 
 ### Programación
 
-Una vez tenemos a nivel teórico el algoritmo, debemos plasmarlo en código. Para ello usaremos distintas funciones:
+Una vez tenemos a nivel teórico el algoritmo, debemos plasmarlo en código. El robot, en este caso, solo va a sensar el circuito mediante el laser. Vamos a trabajar con dos sistemas de coordenadas: el absoluto (el sistemas de coordenadas del circuito) y el relativo o local (sistema de coordenadas del robot). Para ello usaremos distintas funciones que nos han sido proporcionadas:
 
   - absolute2relative: función que convierte unas coordenadas del mapa global al las coordenadas relativas al robot.
 
@@ -223,7 +223,7 @@ def parse_laser_data (laser_data):
   return laser
 ```
 
- - laser_vector: convierte las medidas del laser a vector.
+ - *laser_vector*: convierte las medidas del laser a vector.
 
 ```python
 def laser_vector(laser):
@@ -238,6 +238,8 @@ def laser_vector(laser):
     laser_mean = np.mean(laser_vectorized, axis=0)
     return laser_mean
 ```
+
+Para mayor efectividad, la función *laser_vector()* la modifiqué haciendo que en vez de multiplicar por la distancia, se multiplicara por la exponencial de la distancia, ya que mejoraba mucho a la hora de que el vector se viera incrementado cuando estaba cerca del obstáculo. Recalcar que esta función solo se usa para sacar el vector repulsivo.
 
 
 ## Resultado
