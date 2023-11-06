@@ -185,7 +185,7 @@ El conjunto de fuerzas se pueden represenrar así:
 
 ### Programación
 
-Una vez tenemos a nivel teórico el algoritmo, debemos plasmarlo en código. El robot, en este caso, solo va a sensar el circuito mediante el laser. Vamos a trabajar con dos sistemas de coordenadas: el absoluto (el sistemas de coordenadas del circuito) y el relativo o local (sistema de coordenadas del robot). Para ello usaremos distintas funciones que nos han sido proporcionadas:
+Una vez tenemos a nivel teórico el algoritmo, debemos plasmarlo en código. El robot, en este caso, solo sensa el circuito mediante el laser. Trabajamos con dos sistemas de coordenadas: el absoluto (el sistemas de coordenadas del circuito) y el relativo o local (sistema de coordenadas del robot). Para ello usaremos distintas funciones que nos han sido proporcionadas:
 
   - absolute2relative: función que convierte unas coordenadas del mapa global al las coordenadas relativas al robot.
 
@@ -241,6 +241,11 @@ def laser_vector(laser):
 
 Para mayor efectividad, la función *laser_vector()* la modifiqué haciendo que en vez de multiplicar por la distancia, se multiplicara por la exponencial de la distancia, ya que mejoraba mucho a la hora de que el vector se viera incrementado cuando estaba cerca del obstáculo. Recalcar que esta función solo se usa para sacar el vector repulsivo.
 
+En la función *run()* encapsulamos todo el código correspondiente al cálculo de las velocidades para llegar a los objetivos o targets propuestos. Al tener como vector atractivo un vector cuyo origen es el robot y destino el target, obtenemos unos números muy grandes, por lo cual fue necesario normalizar la coordenada x a 4 unidades y la coordenada y multiplicarla por Alpha. El valor Alpha (constante por la que se multiplcia el vector atractivo) es un valor muy pequeño respecto al valor Beta del repulsivo, ya que el vector correspondiente a los obstáculos es bastante pequeño. 
+
+Alguno de los targets coincidian con la posición de obstáculos, por lo que, para que no se chocara, puse de condición que a 1 metro y medio del coche el target se diera por visitado o alcanzado.
+
+Por otro lado, para completar el circuito en el menor tiempo posible con un correcto funcionamiento del robot, hay dos posibles velocidades lineales dependiendo de si hay un obstáculo o no (puede ser confuso ya que en el código está puesto dependiente del avgForce, pero la coordenada x crece principalmente si hay un obstáculo cerca). La velocidad angular, en cambio, depende del eje y del vector resultante
 
 ## Resultado
 
