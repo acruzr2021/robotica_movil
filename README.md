@@ -303,6 +303,13 @@ Después, para una mayor eficacia, recorro los obstáculos y a las casillas de a
 
 ![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/51e8e9b1-8928-44ab-865d-ef36caaa4d56)
 
+## Dificultades
+
 
 
 ## Resultado
+
+[Screencast from 05-12-23 13:15:15.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/e8ebf667-c421-4b60-9861-56c1622730ce)
+
+[Screencast from 05-12-23 13:30:13.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/1981b59d-f07a-4cb3-a6e2-a5f4aafdd1bd)
+
