@@ -303,9 +303,13 @@ Después, para una mayor eficacia, recorro los obstáculos y a las casillas de a
 
 ![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/51e8e9b1-8928-44ab-865d-ef36caaa4d56)
 
+Luego, a la hora de navegar itero iniciando por la posición del coche hasta que el target esté a menos de 7 u. de distancia. Luego busco el vecino con menor cosye en un area de 
+11x11 y paso las coordenadas de ese vecino a las del simulador, el cual será el subobjetivo que perseguiremos. Iteramos hasta que ese punto esté a menos de 3 posiciones de distancia y sacamos las posiciones relativas y absolutas del coche en el simulador. Luego, calculamos el vector que nos hará como fuerza atractiva. Esta secuencia se repetirá en bucle hasta alcanzar el objetivo.
+
 ## Dificultades
 
-
+El principal problema que he tenido a la hora de programar esta práctica es el cambio de ejes que existe entre las coordenadas del coche y las del mapa, confunde mucho a la hora de probar el código. El cambio del mapa al simulador fue fácil gracias a las funciones que nos fueron proporcionadas.
+Otra dificultad fueron las esquinas al navegar, ya que el coche es propenso a chocarse. La solución fue ajustar el área de casillas que busca a la hora de moverse a otro punto y la distancia a la que se daba ese mini objetivo como alcanzado.
 
 ## Resultado
 
@@ -318,6 +322,7 @@ Navegación:
 [Screencast from 05-12-23 13:30:13.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/1981b59d-f07a-4cb3-a6e2-a5f4aafdd1bd)
 
 Otro ejemplo de navegación:
+
 [Screencast from 05-12-23 13:43:57.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/44f88629-8a41-45a9-9969-02966ca91512)
 
 
