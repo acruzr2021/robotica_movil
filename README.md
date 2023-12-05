@@ -6,6 +6,7 @@
 * [Basic Vacuum Cleaner][p1]
 * [Follow line][p2]
 * [Obstacle Avoidance][p3]
+* [Global Navigation][p4]
 
 
 [ind]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#indice
@@ -13,6 +14,7 @@
 [p1]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#basic-vacuum-cleaner
 [p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
 [p3]: https://github.com/acruzr2021/robotica_movil/tree/main#obstacle-avoidance
+[p4]: https://github.com/acruzr2021/robotica_movil/tree/main#global-navigation
 
 
 ---
@@ -255,7 +257,7 @@ avgForce = (abs(carForce[0] * ALPHA + obsForce[0] * BETA)), (carForce[1] * ALPHA
 
 ## Resultado
 
-Aquí dejo unos vídeos del comportamiento final. Quiero resaltar que la ejecución es bastante más rápida si el procesador está holgado. En estas ejecuciones se suma un retardo considerable al estar grabando la pantalla. El tiempo medio del código sin estrés es de unos 2 minutos 20 segundos en mi ordenador.
+Aquí dejo unos vídeos del comportamiento fi#nal. Quiero resaltar que la ejecución es bastante más rápida si el procesador está holgado. En estas ejecuciones se suma un retardo considerable al estar grabando la pantalla. El tiempo medio del código sin estrés es de unos 2 minutos 20 segundos en mi ordenador.
 
 [Screencast from 06-11-23 18:45:18.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/d39eed23-736e-4093-8f89-d119298605b7)
 
@@ -263,3 +265,44 @@ Este es el mismo código solo que en vez de multiplicar la constante Alpha al ha
 
 [Screencast from 05-11-23 17:07:08.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/4f0ba4ab-6f10-4c51-a627-193acf6e2676)
 
+
+---
+
+# Global Navigation
+
+## Meta
+
+En esta cuarta práctica tenemos como objetivo conseguir que un taxi llegue al target marcado en el menor tiempo posible con la ruta más óptima.
+
+## Gradient Path Planning
+
+Gradient Path Planning (Planificación de Trayectorias por Gradiente) es un algoritmo de navegación global utilizado en robótica y sistemas autónomos para planificar trayectorias eficientes y seguras en entornos complejos. El campo de gradiente indica la dirección y magnitud de la pendiente en cada ubicación del entorno.
+
+Un robot puede utilizar un mapa de gradientes para entender la topografía del entorno, identificando áreas de mayor o menor costo para la navegación, donde el coste representa la dificultad que representa atravesar ese área. Durante la planificación de trayectorias, el robot busca encontrar una ruta que minimice el costo total de la trayectoria desde el punto de inicio hasta el destino.
+
+El descenso por gradiente se utiliza para encontrar el mínimo local de una función, permitiendo encontrar la ruta donde el coste disminuye más rápidamente.
+
+Esta técnica es especialmente útil en situaciones donde se requiere adaptabilidad a cambios en el entorno y la optimización de rutas.
+
+![gradient](https://github.com/acruzr2021/robotica_movil/assets/92941137/9d015acb-ff50-4e26-948c-f042766aa774)
+
+## Programación
+
+Para abordar esta práctica, primero saqué el gradiente a partir del pseudocódigo proporcionado. Creo una nueva matriz inicializada a 0 del mismo tamaño que la matriz que contiene al mapa, donde vamos a guardar el gradiente y creamos una cola de prioridad añadiendo la posición del target con coste cero. Luego vamos iterando mientras que exista un elemento en la cola. Extraemos el elemento y comprobamos:
+
+  - Si es igual al inicio, cortamos la ejecución.
+  - Si el dato del mapa en esas coordenadas es 0, añadimos a la lista de obstáculos y pasamos a la siguuiente.
+  - Si esa coordenada ya ha sido visitada, pasamos a la siguiente.
+
+Añadimos el target a la lista de visitados y calculamos sus celdas vecinas. Por cada celda vecina revisamos si ha sido visitada, en cuyo caso, seguimos con la siguiente; en el caso contrario, miramos si es un obstáculo: si lo es, lo descartamos y si no calculamos el peso de la casilla vecina, el cual será el coste de la actual + 1 si está en una casilla horizontal o vertical respecto a la actual y 1.2 si está en la diagonal. Añadimos a la cola de prioridad el coste y el valor y en el gradiente, en la coordenada de la vecina, añadimos el valor 255-coste, ya que queremos las zonas de menor coste se vean más claras hasta llegar al blanco.
+
+El gradient path planning se ve algo como esto:
+![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/6ddbf62e-f035-45c3-b14a-8207d97312be)
+
+Después, para una mayor eficacia, recorro los obstáculos y a las casillas de alrededor que no sean obstáculos, les añado un coste adicional de 50 y a las contiguas a estas de 20. El tiempo de ejecución se incrementa considerablemente pero a cambio obtenemos mayor fiabilidad, asegurando así una distancia de seguridad entre el coche y los obstáculos.
+
+![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/51e8e9b1-8928-44ab-865d-ef36caaa4d56)
+
+
+
+## Resultado
