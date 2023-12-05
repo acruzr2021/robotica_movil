@@ -309,7 +309,16 @@ Después, para una mayor eficacia, recorro los obstáculos y a las casillas de a
 
 ## Resultado
 
+Cálculo de gradiente:
+
 [Screencast from 05-12-23 13:15:15.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/e8ebf667-c421-4b60-9861-56c1622730ce)
 
+Navegación:
+
 [Screencast from 05-12-23 13:30:13.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/1981b59d-f07a-4cb3-a6e2-a5f4aafdd1bd)
+
+Otro ejemplo de navegación:
+[Screencast from 05-12-23 13:43:57.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/44f88629-8a41-45a9-9969-02966ca91512)
+
+
 
