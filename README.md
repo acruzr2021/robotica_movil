@@ -7,6 +7,7 @@
 * [Follow line][p2]
 * [Obstacle Avoidance][p3]
 * [Global Navigation][p4]
+* [Monte Carlo Laser Localization][p5]
 
 
 [ind]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#indice
@@ -15,6 +16,7 @@
 [p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
 [p3]: https://github.com/acruzr2021/robotica_movil/tree/main#obstacle-avoidance
 [p4]: https://github.com/acruzr2021/robotica_movil/tree/main#global-navigation
+[p5]:
 
 
 ---
@@ -324,6 +326,34 @@ Navegación:
 Otro ejemplo de navegación:
 
 [Screencast from 05-12-23 13:43:57.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/44f88629-8a41-45a9-9969-02966ca91512)
+
+
+---
+
+# Monte Carlo Laser Localization
+
+## Meta
+
+En esta última práctica trata autolocalizarse a través de un algorimo de localización probabilística muestreada. 
+
+## Localización probabilística muestreada
+
+Este método se basa en la teoría de probabilidades y utiliza técnicas de muestreo para calcular la posición más probable.
+
+El robot inicialmente se encuentra en un entorno desconocido, desconociendo su posición. El robot disponde tan solo de un laser como sensor. 
+
+
+
+# Resultado
+
+Este es el vídeo de la localización base, con un movimiento circular uniforme:
+
+[Screencast from 07-01-24 12:45:57.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/e28cb113-8ca5-4198-a8db-be59c2ed376f)
+
+Como está grabando, pierde potencia, pero las partículas generalmente encuentran más rapidamente al robot.
+
+He tratado de conseguir un robot que pudiera localizarse mientras se movía por la casa, esto es lo que he conseguido:
+
 
 
 
