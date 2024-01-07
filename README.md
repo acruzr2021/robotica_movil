@@ -362,6 +362,16 @@ Despues de unas cuantas iteraciones tenemos este resultado:
 
 Traté de hacer que el robot pudiera moverse por la casa pero tenía el inconveniente de que no a veces el programa iba demasiado justo de recursos y atravesaba las paredes, haciendo que las partículas pedieran al robot. Una vez solucionado esto, me di cuenta que cuanto más se acerca el robot a la pared, las particulas se van perdiendo. Otra dificultad es que, al variar el estado en el que está moviéndose, las partículas no reaccionan bien y van quedando atrás.
 
+## Ejecución
+
+Para poder ejecutar el programa, descargamos el *.zip* y descomprimimos. Encontraremos la imagen del mapa, las librerías y el archivo *main.py*. Lo ejecutamos de la siguiente forma:
+
+```
+python3 main.py
+```
+
+Una vez aparezca el mapa, tendremos que presionar unas dos veces el teclado para que inicie la autolocalización.
+
 ## Resultado
 
 Este es el vídeo de la localización base, con un movimiento circular uniforme:
