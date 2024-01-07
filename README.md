@@ -344,18 +344,29 @@ El robot inicialmente se encuentra en un entorno desconocido, desconociendo su p
 
 Si los pesos están bien seleccionado y hay un número suficiente de partículas, se forma una nube de particulas alrededor del robot
 
+## Programación
 
+En esta última práctica no vamos a usar el simulador usado anteriormente, esta vez tenemos dos escenarios: el mapa donde vemos el movimiento del robot y de las partículas (una imagen de 400x400) y el mundo. Las coordenadas cambian dependiendo del escenario, por lo que deberemos operar con las funciones proporcionadas.
 
-# Resultado
+Inicializamos las partículas, teniendo en cuenta que no deben de estar en los píxeles negros o paredes. Como no tenemos simulador, deberemos configurarlo a mano, haciendo que se generen hasta que no estén en esas zonas. 
+
+Luego, hago moverse al robot dando círculos, y hago que las partículas le sigan. Recojo los datos captados por el laser del robot y los láseres virtuales de las partículas, filtro a 1 rayo de laser por cada 10, es decir, de los 180 solo leo 18. Con esos datos filtrados, comparo los láseres de cada partícula con el del robot calculando el módulo de los rayos y la media. A menor es la media, más fiable es la partícula, por lo cual le doy mayor peso. Como son muchas partículas, he optado por usar multiprocessing, pasándole al callback el laser de la partícula, el laser del robot y la imagen del mapa. Este hilo calcula la distancia y el peso.
+
+Luego, aleatoriamente se seleccionan algunas de las partículas de menor peso que convergen con las restantes.
+
+Despues de unas cuantas iteraciones tenemos este resultado:
+
+![image](https://github.com/acruzr2021/robotica_movil/assets/92941137/d4f37fcb-3490-4ec8-9dff-9794efc1185d)
+
+# Dificultades
+
+Traté de hacer que el robot pudiera moverse por la casa pero tenía el inconveniente de que no a veces el programa iba demasiado justo de recursos y atravesaba las paredes, haciendo que las partículas pedieran al robot. Una vez solucionado esto, me di cuenta que cuanto más se acerca el robot a la pared, las particulas se van perdiendo. Otra dificultad es que, al variar el estado en el que está moviéndose, las partículas no reaccionan bien y van quedando atrás.
+
+## Resultado
 
 Este es el vídeo de la localización base, con un movimiento circular uniforme:
 
 [Screencast from 07-01-24 12:45:57.webm](https://github.com/acruzr2021/robotica_movil/assets/92941137/e28cb113-8ca5-4198-a8db-be59c2ed376f)
 
 Como está grabando, pierde potencia, pero las partículas generalmente encuentran más rapidamente al robot.
-
-He tratado de conseguir un robot que pudiera localizarse mientras se movía por la casa, esto es lo que he conseguido:
-
-
-
 
