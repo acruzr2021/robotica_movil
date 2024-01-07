@@ -16,7 +16,7 @@
 [p2]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#follow-line
 [p3]: https://github.com/acruzr2021/robotica_movil/tree/main#obstacle-avoidance
 [p4]: https://github.com/acruzr2021/robotica_movil/tree/main#global-navigation
-[p5]:
+[p5]: https://github.com/acruzr2021/robotica_movil/blob/main/README.md#monte-carlo-laser-localization
 
 
 ---
@@ -340,7 +340,9 @@ En esta última práctica trata autolocalizarse a través de un algorimo de loca
 
 Este método se basa en la teoría de probabilidades y utiliza técnicas de muestreo para calcular la posición más probable.
 
-El robot inicialmente se encuentra en un entorno desconocido, desconociendo su posición. El robot disponde tan solo de un laser como sensor. 
+El robot inicialmente se encuentra en un entorno desconocido, desconociendo su posición. El robot disponde tan solo de un laser como sensor. Lanzamos múltiples partículas por el mapa como muestras para determinar la posición del robot, se les asigna una determinada probabilidad, reflejando la posibilidad que tiene de estar en la misma posición que la máquina. A medida que el robot se mueve, las partículas deben moverse en la misma dirección y sentido. Compara los datos del laser y los de las partículas, dando más peso a las que más se parecen y luego, un determinado número de partículas, elegido al azar pero con mayor probabilidad a menor peso, se convergen con el resto de partículas.
+
+Si los pesos están bien seleccionado y hay un número suficiente de partículas, se forma una nube de particulas alrededor del robot
 
 
 
